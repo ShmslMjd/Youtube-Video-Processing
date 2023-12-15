@@ -2,6 +2,8 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as pt
 
+#========================== Function Declaration ==========================#
+
 # Check the average brightness of the video, the function loop through all the frames in the
 # video and store in the frames [] list. The average brightness is calculated by taking the
 # mean of the frame list.
@@ -45,7 +47,7 @@ def increase_brightness(frame, factor):
 # The videos will be stored in array and for loop will be used to process each video.
 # At the start of the loop check_brightness() is called to determine the time of the
 # video. Total number of frames is calculated and each frame will be processed and edited.
-# When processing the program will check the value of brightness, if the value is 'night'
+# During processing the program will check the value of brightness, if the value is 'night'
 # increase the brightness of the whole video. The processed frame then will be passed to
 # detectMultiScale() function to apply blur effect on the faces in the video.
 # Finally the youtuber video will be overlayed on top left of the video
