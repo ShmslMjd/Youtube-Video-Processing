@@ -2,17 +2,20 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-# Load the image
+# This is used to load the targeted image
 image = cv2.imread('001.png', 0)
 
-# Threshold the image
+# Thresholding was used here to reduce any pixels below the range of 200 and anything above will be increased.
 _, binary = cv2.threshold(image, 200, 255, cv2.THRESH_BINARY_INV)
 
-# Apply dilation
+# Using dilation - This is used to increase the area of the object to make it bigger.
 kernel = np.ones((15, 15), np.uint8)
 dilated = cv2.dilate(binary, kernel, iterations=2)
 
-# Find contours
+# This is used to find contours in image basically meaning finding colours of same intensity.
+# Later the dilated function is used for when the contours are found. 
+# cv2.RETR_EXTERNAL is used to retrieve contour.
+# cv2.CHAIN_APPROX_SIMPLE is used to compresses horizontal, vertical, and diagonal segments and leaves only their end points.
 contours, _ = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
 # Calculate dynamic threshold
