@@ -84,9 +84,8 @@ for video in videos:
     youtuber = cv2.VideoCapture("talking.mp4")
     # Count the frames in the overlaying video
     total_no_frames_youtuber = int(youtuber.get(cv2.CAP_PROP_FRAME_COUNT))
-    #
+    # Initializing video name
     vid_name = video.split('.')[0]
-    #
     processed_video_name = f"processed_video_{vid_name}"
     # Create a variable, use Video Writer to set the output video name, format, frame count & spatial resolution
     result = cv2.VideoWriter(f"processed_video_{vid_name}.avi",
@@ -109,7 +108,7 @@ for video in videos:
         # Set the video frame into the variable "frame" if success to read the chosen video
         success, frame = vid.read()
 
-        # If-else loop to determine which set of frames to use
+        # Check whether the video is set at night or day
         if brightness == "night":
             frame_result = increase_brightness(frame, 1.8)
         else:
@@ -172,10 +171,10 @@ for video in videos:
     # Increase the counter number to choose the next video in the list
     counter += 1
     
-    #
+    # Freed up the youtuber object for the next iteration
     youtuber.release()
 
-    # Generate the video file in the same directory
+    # Freed up the result object for the next iteration
     result.release()
     
 print("\nAll video has been processed!")
