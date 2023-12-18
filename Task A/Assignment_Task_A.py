@@ -53,6 +53,10 @@ def increase_brightness(frame, factor):
 # Finally the youtuber video will be overlayed on top left of the video
 
 videos = ["singapore.mp4", "traffic.mp4", "alley.mp4", "office.mp4"]
+watermark1 = cv2.imread("watermark1.png", 1)
+watermark2 = cv2.imread("watermark2.png", 1)
+watermarks = [watermark1, watermark2]
+watermark_selector = 1
 
 counter = 1
 
@@ -91,6 +95,20 @@ for video in videos:
         
         for (x, y, w, h) in faces:
             frame_result[y : y + h, x : x + w] = cv2.blur(frame_result[y : y + h, x : x + w], (15, 15), cv2.BORDER_REPLICATE)
+        
+        [nrow, ncol, nlayer] = frame_result.shape
+        
+        interval = total_no_frames/6
+        
+        
+        for x in range(nrow):
+            for y in range(ncol):
+                if (frame_count <= interval) or (frame_count > 2*interval and frame_count <= 3*interval) or (frame_count > 4*interval and frame_count <= 5*interval):
+                    if watermarks[0][x, y][0] > 0:
+                        frame_result[x, y] = watermarks[0][x, y]
+                else:
+                    if watermarks[1][x, y][0] > 0:
+                        frame_result[x, y] = watermarks[1][x, y]
             
         if (frame_count <= total_no_frames_youtuber):
             overlay_success, overlay_frame = youtuber.read()
@@ -101,6 +119,13 @@ for video in videos:
             frame_result[50 : 50 + 210, 50 : 50 + 366] = overlay_frame
             
         result.write(frame_result)
+    
+    endscreen = cv2.VideoCapture("endscreen.mp4")
+    total_no_frames_endscreen = int(endscreen.get(cv2.CAP_PROP_FRAME_COUNT))
+    
+    for frame_count in range(total_no_frames_endscreen):
+        success, frame = endscreen.read()
+        result.write(frame)
     
     print(f"Video {counter} has been processed")
     
