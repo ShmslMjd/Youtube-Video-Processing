@@ -172,7 +172,7 @@ for video in videos:
     # Increase the counter number to choose the next video in the list
     counter += 1
     
-    #
+    # The frames of overlay video has to be release to avoid confusion in overlaying on the next video.
     youtuber.release()
 
     # Generate the video file in the same directory
