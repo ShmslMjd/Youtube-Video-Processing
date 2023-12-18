@@ -5,6 +5,6 @@
 
  Task A
  - for each video the processing time will take around 30 - 40 minutes
- - for 4 videos it is estimated to take around 2 hours
+ - for 4 videos it is estimated to take around 2 - 3 hours (depends on the spec of your PC)
  - in the console once the program is running, there is loading feature that show you the progress of the video
  - in this file also we included the video result from our testing for your reference
