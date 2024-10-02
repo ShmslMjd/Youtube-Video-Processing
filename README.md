@@ -2,7 +2,7 @@
 
 Digital Image Processing Assignment
 
-Objective:
+Objective Task A:
 
 1)Detect whether a video is taken during daytime or nighttime. If a video is found taken during nighttime, increase the brightness of the video before 
 moving to the next step.
@@ -13,7 +13,7 @@ of each video.
 being stolen.
 5) Add the end screen video (endscreen.mp4) to the end of each video.
 
- Each folder contain necessary file for each task of the assignment
+Each folder contain necessary file for each task of the assignment
 
 ######### NOTES #########
 
