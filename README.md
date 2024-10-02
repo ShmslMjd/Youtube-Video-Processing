@@ -4,7 +4,7 @@ Digital Image Processing Assignment
 
 Objective Task A:
 
-1)Detect whether a video is taken during daytime or nighttime. If a video is found taken during nighttime, increase the brightness of the video before 
+1) Detect whether a video is taken during daytime or nighttime. If a video is found taken during nighttime, increase the brightness of the video before 
 moving to the next step.
 2) Blur all the faces (camera facing) that appear in a video.
 3) Resize and overlay the video that she talks about her life as a YouTuber (talking.mp4) on the top left 
@@ -22,3 +22,8 @@ Each folder contain necessary file for each task of the assignment
  - for 4 videos it is estimated to take around 2 - 3 hours (depends on the spec of your PC)
  - in the console once the program is running, there is loading feature that show you the progress of the video
  - in this file also we included the video result from our testing for your reference
+
+Objective Task B:
+
+1) identify and extract all the paragraphs from the images
+2) sort them in the correct order 
